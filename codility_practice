@@ -1,0 +1,49 @@
+Codility
+
+Lesson 5.1
+
+def solution(A):
+    # write your code in Python 3.6
+    out = 0
+    west = 0
+    for i in range(len(A)-1,-1,-1):
+        if A[i]==0:
+           out += west #sum(A[i+1:])
+           if out>1000000000:
+               return -1
+        else:
+            west += 1
+    return out
+
+
+Lesson 5.3
+
+def solution(A):
+    # write your code in Python 3.6
+    min_avg = (A[0]+A[1])/2.0
+    for ind in range(0,len(A)-2):
+        if (A[ind]+A[ind+1])/2.0 <= min_avg:
+            min_avg = (A[ind]+A[ind+1])/2.0
+            min_pos = ind
+        if (A[ind]+A[ind+1]+A[ind+2])/3.0<=min_avg:
+            min_avg = (A[ind]+A[ind+1]+A[ind+2])/3.0
+            min_pos = ind
+            
+    if(A[-1]+A[-2])/2.0 <= min_avg:
+        min_avg = (A[-1]+A[-2])/2.0
+        min_pos = -1
+        
+    return min_pos
+
+
+Lesson 5.4
+
+https://storymirror.com/read/story/hindi/0mvzvw1v/bs-ab-aur-muziraa-nhiin
+
+
+Lesson 6.1
+
+def solution(A):
+    # write your code in Python 3.6
+    A.sort()
+    return max(A[0]*A[1]*A[-1],A[-1]*A[-2]*A[-3])
